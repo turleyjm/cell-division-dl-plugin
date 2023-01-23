@@ -11,9 +11,12 @@ contributions:
     - id: cell-division-dl-plugin.write_single_image
       python_name: cell_division_dl_plugin._writer:write_single_image
       title: Save image data with Cell Division Detector
-    - id: cell-division-dl-plugin.make_magic_widget
+    - id: cell-division-dl-plugin._cellDivision
       python_name: cell_division_dl_plugin._widget:cellDivision
       title: Detect Divisions
+    - id: cell-division-dl-plugin._cellBoundaries
+      python_name: cell_division_dl_plugin._widget:cellBoundaries
+      title: Find Cell Boundaries
   readers:
     - command: cell-division-dl-plugin.get_reader
       accepts_directories: false
@@ -26,5 +29,7 @@ contributions:
       layer_types: ['image']
       filename_extensions: ['.npy']
   widgets:
-    - command: cell-division-dl-plugin.make_magic_widget
+    - command: cell-division-dl-plugin._cellDivision
       display_name: Detect Divisions
+    - command: cell-division-dl-plugin.cellBoundaries
+      display_name: Find Cell Boundaries
