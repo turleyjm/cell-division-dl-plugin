@@ -322,7 +322,7 @@ def cellDivision(
 
     if Dropdown == "Division database":
         shutil.rmtree("temp_folder")
-        dfDivisions.to_pickle(f"dfDivision{filename}.pkl")
+        dfDivisions.to_pickle(f"output/dfDivision{filename}.pkl")
         return Image(
             mask,
             name="divisions",
@@ -433,11 +433,10 @@ def cellDivision(
         )
 
     df = pd.DataFrame(_df)
-    df.to_pickle(f"dfDivision{filename}.pkl")
 
     shutil.rmtree("temp_folder")
     shutil.rmtree("orientationImages")
-    dfDivisions.to_pickle(f"dfDivOri{filename}.pkl")
+    df.to_pickle(f"output/dfDivOri{filename}.pkl")
     return Image(
         mask,
         name="divisions",
@@ -468,9 +467,7 @@ def cellBoundaries(Image_layer: "napari.layers.Image") -> Image:
         get_y=get_msk,
         batch_tfms=[
             *aug_transforms(),
-            Normalize.from_stats(
-                ([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-            ),
+            Normalize.from_stats([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
         ],
     )
 
@@ -492,7 +489,7 @@ def cellBoundaries(Image_layer: "napari.layers.Image") -> Image:
         self_attention=True,
         act_cls=Mish,
         opt_func=opt,
-    ).to_fp16()
+    )
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     learn.load("UNetBoundary")
@@ -546,7 +543,7 @@ def cellBoundaries(Image_layer: "napari.layers.Image") -> Image:
     shutil.rmtree("temp_folder")
     boundaries = np.asarray(boundaries, "uint8")
     tifffile.imwrite(
-        f"boundaries_{filename}.tif",
+        f"output/boundaries_{filename}.tif",
         boundaries,
         imagej=True,
     )
