@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/turleyjm/cell-division-dl-plugin/branch/main/graph/badge.svg)](https://codecov.io/gh/turleyjm/cell-division-dl-plugin)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/cell-division-dl-plugin)](https://napari-hub.org/plugins/cell-division-dl-plugin)
 
-Deep learning plugin to detect cell divisions, find there orientation and cell boundaries
+Deep learning plugin to detect cell divisions, find there orientation and cell boundaries.
 
 ----------------------------------
 
