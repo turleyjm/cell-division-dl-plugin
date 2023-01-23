@@ -18,7 +18,7 @@ import tifffile
 import timm
 import torch
 import torch.nn as nn
-from fastai.vision.models import DynamicUnet
+from fastai.vision.models.unet import DynamicUnet
 from magicgui import magic_factory
 from napari.layers import Image
 from scipy import ndimage
