@@ -21,23 +21,10 @@ and review the napari docs for plugin developers:
 https://napari.org/stable/plugins/index.html
 -->
 
-## Installation
-
-You can install `cell-division-dl-plugin` via [pip]:
-
-    pip install cell-division-dl-plugin
-
-
-
 To install latest development version :
 
     pip install git+https://github.com/turleyjm/cell-division-dl-plugin.git
 
-
-## Contributing
-
-Contributions are very welcome. Tests can be run with [tox], please ensure
-the coverage at least stays the same before you submit a pull request.
 
 ## License
 

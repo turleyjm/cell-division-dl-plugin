@@ -85,3 +85,5 @@ venv/
 
 models
 output
+trainingNewModels/UNetBoundary
+trainingNewModels/UNetCellDivision10
