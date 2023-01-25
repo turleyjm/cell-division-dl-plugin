@@ -1,12 +1,5 @@
 # cell-division-dl-plugin
 
-[![License BSD-3](https://img.shields.io/pypi/l/cell-division-dl-plugin.svg?color=green)](https://github.com/turleyjm/cell-division-dl-plugin/raw/main/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/cell-division-dl-plugin.svg?color=green)](https://pypi.org/project/cell-division-dl-plugin)
-[![Python Version](https://img.shields.io/pypi/pyversions/cell-division-dl-plugin.svg?color=green)](https://python.org)
-[![tests](https://github.com/turleyjm/cell-division-dl-plugin/workflows/tests/badge.svg)](https://github.com/turleyjm/cell-division-dl-plugin/actions)
-[![codecov](https://codecov.io/gh/turleyjm/cell-division-dl-plugin/branch/main/graph/badge.svg)](https://codecov.io/gh/turleyjm/cell-division-dl-plugin)
-[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/cell-division-dl-plugin)](https://napari-hub.org/plugins/cell-division-dl-plugin)
-
 Deep learning plugin to detect cell divisions, find there orientation and cell boundaries.
 
 ----------------------------------
