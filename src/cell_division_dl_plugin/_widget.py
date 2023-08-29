@@ -214,10 +214,10 @@ def cellDivision(
     Image_layer: "napari.layers.Image", Dropdown="Division heatmap"
 ) -> Image:
     filename = Image_layer.name
-    resnet = timm.create_model("resnet34", pretrained=True)
+    resnet = timm.create_model("resnet34", pretrained=True) # Change resnet34 to modify the image classifer which will form the UNetCellDivision model
     resnet.conv1 = nn.Conv2d(
         10, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False
-    )
+    ) # change 10 to modify number of frame inputs
 
     m = resnet
     m = nn.Sequential(*list(m.children())[:-2])
@@ -228,7 +228,7 @@ def cellDivision(
             map_location=torch.device("cpu"),
         ),
         model,
-    )
+    ) # Load trained model 
 
     DLinput = Image_layer.data
     if len(DLinput.shape) != 4:
@@ -241,7 +241,7 @@ def cellDivision(
     mask = np.zeros([T, X, Y])
     DLinput = np.array(DLinput)
 
-    for t in range(T - 4):
+    for t in range(T - 4): # Aarranges videos into input frames for the deep learning model
         vid = np.zeros([10, X, Y])
         for j in range(5):
             vid[2 * j] = DLinput[int(t + j), :, :, 1]
@@ -397,10 +397,10 @@ def cellDivision(
         vid = np.asarray(vid, "uint8")
         tifffile.imwrite(f"orientationImages/division{label}.tif", vid)
 
-    resnet = timm.create_model("resnet34", pretrained=True)
+    resnet = timm.create_model("resnet34", pretrained=True) # Change resnet34 to modify the image classifer which will form the UNetCellDivision model
     resnet.conv1 = nn.Conv2d(
         10, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False
-    )
+    ) # change 10 to modify number of frame inputs
 
     m = resnet
     m = nn.Sequential(*list(m.children())[:-2])
@@ -410,7 +410,7 @@ def cellDivision(
             "models/UNetOrientation.pth.tar", map_location=torch.device("cpu")
         ),
         model,
-    )
+    ) # Load trained model 
 
     _df = []
     for k in range(len(dfDivisions)):
@@ -489,7 +489,7 @@ def cellBoundaries(Image_layer: "napari.layers.Image") -> Image:
         self_attention=True,
         act_cls=Mish,
         opt_func=opt,
-    )
+    ) # Change resnet101 to modify the image classifer which will form the UNetCellDivision model
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     learn.load("UNetBoundary")
