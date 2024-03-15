@@ -1,6 +1,6 @@
 # cell-division-dl-plugin
 
-Deep learning plugin to detect cell divisions, find there orientation and cell boundaries.
+Deep learning plugin to detect cell divisions, find there orientation and cell boundaries. 
 
 ----------------------------------
 
@@ -14,9 +14,31 @@ and review the napari docs for plugin developers:
 https://napari.org/stable/plugins/index.html
 -->
 
-To install latest development version :
+## Installation
 
-    pip install git+https://github.com/turleyjm/cell-division-dl-plugin.git
+Install by cloning this repository, and once inside this repository make a new virtual environment and activate it by running:
+
+```sh
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Next install the napari and plugin
+```sh
+pip install "napari[all]"
+pip install git+https://github.com/turleyjm/cell-division-dl-plugin.git
+```
+
+Models (UNetBoundary.pth, UNetCellDivision10.pth.tar and UNetOrientation.pth.tar) needed to run this plugin can be downloaded from [Zenodo]. Add them to models folder.
+
+## Usage
+
+Loading napari can be done by typing `napari` in your terminal with in the 
+
+
+
+## Retrain 
+
 
 
 ## License
