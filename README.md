@@ -25,7 +25,6 @@ source venv/bin/activate
 
 Next install the napari and plugin
 ```sh
-pip install "napari[all]"
 pip install git+https://github.com/turleyjm/cell-division-dl-plugin.git
 ```
 
