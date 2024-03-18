@@ -42,7 +42,7 @@ There are 3 options for "Division heatmap", "Division database" and "Division & 
 
 "Division & orientaton database" follows the same steps as above then loads and runs the UNetOrientation.pth.tar model on each of the detected cell divisions to determine the orientation of cell divisions and saves this in a updated database.
 
-Extracting divisions from the video can take some time to process.
+Extracting divisions from the video can take some time to process. As 5 frame videos are used to detect cell divisions, cells dividing in the first or last 3 frames will not have their cell divisions detected.
 
 ## Retrain 
 
