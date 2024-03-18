@@ -1,6 +1,6 @@
 # cell-division-dl-plugin
 
-Deep learning plugin to detect cell divisions, find there orientation and cell boundaries. 
+Deep learning plugin to detect cell divisions and find there orientation. 
 
 ----------------------------------
 
@@ -28,18 +28,26 @@ Next install the napari and plugin
 pip install git+https://github.com/turleyjm/cell-division-dl-plugin.git
 ```
 
-Models (UNetBoundary.pth, UNetCellDivision10.pth.tar and UNetOrientation.pth.tar) needed to run this plugin can be downloaded from [Zenodo]. Add them to models folder.
+Models (UNetCellDivision10.pth.tar and UNetOrientation.pth.tar) needed to run this plugin can be downloaded from [Zenodo]. Add them to models folder.
 
 ## Usage
 
-Loading napari can be done by typing `napari` in your terminal with in the 
+Loading napari can be done by typing `napari` in your terminal with in the virtual environment this will load the napari GUI. Then the video cell divisions are to be detected in can be dragged and dropped in to the GUI. We have added a demo video to the in the dat folder which can used to demonstrate the method. The plugin can be then be started.
 
+There are 3 options for "Division heatmap", "Division database" and "Division & orientaton database".
 
+"Division heatmap" loads and runs the UNetCellDivision10.pth.tar model on the video. It displays the division prediction heatmap showing areas of the video it has detected cell divisions.
+
+"Division database" will do the first step as above and also locate these divisions from the prediction heatmap and genate a database of cell divisions finding their location in space and time.
+
+"Division & orientaton database" follows the same steps as above then loads and runs the UNetOrientation.pth.tar model on each of the detected cell divisions to determine the orientation of cell divisions and saves this in a updated database.
 
 ## Retrain 
 
+In the folder trainModels we have included the code to train, test and evaluate each of the deep learning models we have used in the paper. The datasets used to train the models can be found in [Zenodo]. Also included is the saved parameters of the trained models.
 
-
+To retrain a model on a new set of exprimental data can be done by genarating a set of training data following the examples provide in the training data. Then using the proved Jupyter notebooks to train the indivual models. For those less formetat with training deep learning model we recommend the freely avalable [fast.ai] training course.
+ 
 ## License
 
 Distributed under the terms of the [BSD-3] license,
