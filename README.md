@@ -32,7 +32,7 @@ Models (UNetCellDivision10.pth.tar and UNetOrientation.pth.tar) needed to run th
 
 ## Usage
 
-Loading napari can be done by typing `napari` in your terminal with in the virtual environment this will load the napari GUI. Then the video cell divisions are to be detected in can be dragged and dropped in to the GUI. We have added a demo video to the in the dat folder which can used to demonstrate the method. The plugin can be then be started.
+Loading napari can be done by typing `napari` in your terminal with in the virtual environment this will load the napari GUI. Then the video cell divisions are to be detected in can be dragged and dropped in to the GUI. We have added a demo video (focusWoundL18h10-short.tif) to the in the dat folder which can used to demonstrate the method. The plugin can be then be started.
 
 There are 3 options for "Division heatmap", "Division database" and "Division & orientaton database".
 
@@ -41,6 +41,8 @@ There are 3 options for "Division heatmap", "Division database" and "Division & 
 "Division database" will do the first step as above and also locate these divisions from the prediction heatmap and genate a database of cell divisions finding their location in space and time.
 
 "Division & orientaton database" follows the same steps as above then loads and runs the UNetOrientation.pth.tar model on each of the detected cell divisions to determine the orientation of cell divisions and saves this in a updated database.
+
+Extracting divisions from the video can take some time to process.
 
 ## Retrain 
 
