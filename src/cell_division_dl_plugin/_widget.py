@@ -37,6 +37,66 @@ from skimage.feature import blob_log
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
+# show divisions on focused 2D video
+def displayDivisions(filename, DLinput, dfDivisions, orientation=False):
+        
+    [T, X, Y, rgb] = DLinput.shape
+    highlightDivisions = np.zeros([T, 552, 552, 3])
+
+    for x in range(X):
+        for y in range(Y):
+            highlightDivisions[:, 20 + x, 20 + y, :] = DLinput[:, x, y, :]
+
+    
+    for i in range(len(dfDivisions)):
+        # for each cell division mark a blue disk around the site
+        t, x, y = (
+            dfDivisions["T"].iloc[i],
+            dfDivisions["X"].iloc[i],
+            dfDivisions["Y"].iloc[i],
+        )
+        x = int(x)
+        y = int(y)
+        t0 = int(t)
+
+        rr0, cc0 = sm.draw.disk([551 - (y + 20), x + 20], 16)
+        rr1, cc1 = sm.draw.disk([551 - (y + 20), x + 20], 11)
+        
+        # draw line in direction of oriantation of division
+        if orientation:
+            ori = dfDivisions["Orientation"].iloc[i] * np.pi / 180
+            rr2, cc2, val = sm.draw.line_aa(
+                int(551 - (y + 16 * np.sin(ori) + 20)),
+                int(x + 16 * np.cos(ori) + 20),
+                int(551 - (y - 16 * np.sin(ori) + 20)),
+                int(x - 16 * np.cos(ori) + 20),
+            )
+
+        times = range(t0, t0 + 2)
+
+        timeVid = []
+        for t in times:
+            if t >= 0 and t <= T - 1:
+                timeVid.append(t)
+
+        i = 1
+        for t in timeVid:
+            highlightDivisions[t][rr0, cc0, 2] = 250 / i
+            highlightDivisions[t][rr1, cc1, 2] = 0
+            if orientation:
+                highlightDivisions[t][rr2, cc2, 2] = 250
+            i += 1
+
+    highlightDivisions = highlightDivisions[:, 20:532, 20:532]
+
+    # save file
+    highlightDivisions = np.asarray(highlightDivisions, "uint8")
+    tifffile.imwrite(
+        f"output/divisions{filename}.tif",
+        highlightDivisions,
+    )
+
+
 def createFolder(directory):
     try:
         if not os.path.exists(directory):
@@ -252,6 +312,9 @@ def cellDivision(
     if Dropdown == "Division database":
         shutil.rmtree("temp_folder")
         dfDivisions.to_pickle(f"output/dfDivision{filename}.pkl")
+        displayDivisions(filename, DLinput, dfDivisions, orientation=False)
+        dfDivisions["Y"] = 512 - dfDivisions["Y"] # change coord to match imagej
+        dfDivisions.to_excel(f"output/dfDivision{filename}.xlsx")
         return Image(
             mask,
             name="divisions",
@@ -366,6 +429,9 @@ def cellDivision(
     shutil.rmtree("temp_folder")
     shutil.rmtree("orientationImages")
     df.to_pickle(f"output/dfDivOri{filename}.pkl")
+    df["Y"] = 512 - df["Y"] # change coord to match imagej
+    df.to_excel(f"output/dfDivOri{filename}.xlsx")
+    displayDivisions(filename, DLinput, df, orientation=True)
     return Image(
         mask,
         name="divisions",
