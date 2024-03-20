@@ -46,6 +46,9 @@ After loading the plugin clicking the button "" there are 3 options for "Divisio
 Video of plugin output with blue overlap of the models division event prediction.
 </p>
 
+![displayDivisions](https://github.com/turleyjm/cell-division-dl-plugin/assets/68009166/56dba27c-7c78-4231-b574-61294cec449a)
+
+
 ### Division database
 "Division database" will do the first step as above and also locate these divisions from the prediction heatmap and genate a database of cell divisions finding their location in space and time. Also saves a display video in the folder "output" showing detected cell divisions via a blue overlay.
 
