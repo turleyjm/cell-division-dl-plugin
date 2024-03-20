@@ -42,12 +42,8 @@ After loading the plugin clicking the button "" there are 3 options for "Divisio
 "Division heatmap" loads and runs the UNetCellDivision10.pth.tar model on the video. It displays the division prediction heatmap showing areas of the video it has detected cell divisions. (Note some of the output signal can be weak in some division and is still detected in the next steps but is by eye more difficult to see. Increasing the bightness/contrast can clearly show these detected divisons)
 
 <p align="center">
-![displayDivisions](https://github.com/turleyjm/cell-division-dl-plugin/blob/main/displayDivisions.jpg?raw=true "displayDivisions") 
-Video of plugin output with blue overlap of the models division event prediction.
-</p>
-
 ![displayDivisions](https://github.com/turleyjm/cell-division-dl-plugin/assets/68009166/56dba27c-7c78-4231-b574-61294cec449a)
-
+</p>
 
 ### Division database
 "Division database" will do the first step as above and also locate these divisions from the prediction heatmap and genate a database of cell divisions finding their location in space and time. Also saves a display video in the folder "output" showing detected cell divisions via a blue overlay.
