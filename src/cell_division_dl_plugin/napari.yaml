@@ -14,9 +14,6 @@ contributions:
     - id: cell-division-dl-plugin.cellDivision
       python_name: cell_division_dl_plugin._widget:cellDivision
       title: Detect Divisions
-    - id: cell-division-dl-plugin.cellBoundaries
-      python_name: cell_division_dl_plugin._widget:cellBoundaries
-      title: Find Cell Boundaries
   readers:
     - command: cell-division-dl-plugin.get_reader
       accepts_directories: false
@@ -31,5 +28,3 @@ contributions:
   widgets:
     - command: cell-division-dl-plugin.cellDivision
       display_name: Detect Divisions
-    - command: cell-division-dl-plugin.cellBoundaries
-      display_name: Find Cell Boundaries
