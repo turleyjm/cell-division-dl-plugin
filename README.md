@@ -18,9 +18,15 @@ https://napari.org/stable/plugins/index.html
 
 Install by cloning this repository, and once inside this repository make a new virtual environment and activate it by running:
 
+For mac
 ```sh
 python3 -m venv venv
 source venv/bin/activate
+```
+For windows
+```sh
+python3 -m venv venv
+.\venv\Scripts\activate
 ```
 
 Next install the napari and plugin
