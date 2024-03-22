@@ -89,6 +89,9 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [Mozilla Public License 2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
 [paper]: https://www.biorxiv.org/content/10.1101/2023.03.20.533343v3.abstract
+[Zenodo]: https://zenodo.org/records/10846684
+[fast.ai]: https://course.fast.ai/Lessons/lesson1.html
+
 
 [file an issue]: https://github.com/turleyjm/cell-division-dl-plugin/issues
 
