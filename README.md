@@ -36,7 +36,7 @@ Models (UNetCellDivision10.pth.tar and UNetOrientation.pth.tar) needed to run th
 
 Loading napari can be done by typing `napari` in your terminal within the virtual environment this will load the napari GUI. Then the video, that cell divisions are to be detected in, can be dragged and dropped onto the GUI. We have added a demo video (focusWoundL18h10-short.tif) to the dat folder which can used to demonstrate the method. The plugin can be then be started.
 
-After loading the plugin clicking the button " Detect divisions "  there are 3 options for "Division heatmap", "Division database" and "Division & orientaton database" these will each produce a different output.
+After loading the plugin clicking the button "Detect divisions"  there are 3 options for "Division heatmap", "Division database" and "Division & orientaton database" these will each produce a different output.
 
 ### Division heatmap
 "Division heatmap" loads and runs the UNetCellDivision10.pth.tar model on the video. It displays the division prediction heatmap showing areas of the video where it has detected cell divisions. (Note the output signal for some divisions can be weak and therefore difficult to see by eye. Increasing the brightness/contrast can make the divisions more visible.)
